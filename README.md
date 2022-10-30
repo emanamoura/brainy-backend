@@ -9,6 +9,7 @@
 
 - [Node.js](https://nodejs.org/), [Express](https://expressjs.com/) and [Typescript](https://www.typescriptlang.org/)
 - [Prisma](https://www.prisma.io/) and [PostgreSQL](https://www.postgresql.org/)
+- [Docker](https://www.docker.com/)
 - Linting with [ESLint](https://eslint.org/)
 - Formatting with [Prettier](https://prettier.io/)
 
@@ -24,7 +25,7 @@ This project runs on [Node.js v16](https://nodejs.org/) and uses [Yarn v1](https
    $ yarn install
    ```
 
-2. To run the project in development mode, start a development database:
+2. To run the project in development mode, start a development database (you must have Docker in your computer):
 
    ```bash
    $ yarn db:up
