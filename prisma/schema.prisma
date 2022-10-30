@@ -1,0 +1,44 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  city      City     @relation(fields: [cityId], references: [id])
+  cityId    String
+
+  UserHobbie UserHobbie[]
+}
+
+model City {
+  id     String  @id @default(uuid())
+  city   String
+  state  String
+  Users  User[]
+  userId String?
+  createdAt DateTime @default(now())
+}
+
+model UserHobbie {
+  id       String @id @default(uuid())
+  user     User?   @relation(fields: [userId], references: [id])
+  hobbie   Hobbie? @relation(fields: [hobbieId], references: [id])
+  userId   String?
+  hobbieId String?
+  createdAt DateTime @default(now())
+}
+
+model Hobbie {
+  id         String       @id @default(uuid())
+  name       String
+  UserHobbie UserHobbie[]
+  createdAt DateTime @default(now())
+}
