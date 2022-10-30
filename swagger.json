@@ -1,0 +1,45 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Brainy Digital Documentation",
+    "description": "This is an API to store users, their cities and hobbies",
+    "version": "1.0.0",
+    "contact": {
+      "email": "emanarmoura@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create a user",
+        "description": "Create a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": "string",
+                  "email": "string",
+                  "cityId": "string",
+                  "hobbies": "string[]"
+                },
+                "example": {
+                    "name": "Emanuel Moura",
+                    "email": "teste@gmail.com",
+                    "cityId": "02c302ae-4af0-450e-8734-9d2af812a966",
+                    "hobbies": ["2bf169d4-4dec-4029-a1d3-aaced75cf95b","5739f59e-e98e-42a6-865a-738d9632d624"]
+                  }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+              "description": "Created"
+          }
+        }
+      }
+    }
+  }
+}
